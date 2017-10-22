@@ -22,6 +22,9 @@ public class NumberInput {
                 if (numb >= 1 & numb <= 4) {
                     break;
                 }
+                else {
+                    System.out.println("Введите число от 1 до 4.");
+                }
             } else {
                 System.out.println("Вы ввели не целое число!");
                 scanner.next();
