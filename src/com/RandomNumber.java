@@ -1,21 +1,22 @@
 package com;
 
 public class RandomNumber {
-    private int[] randomNumbers = new int[4];
+    private RandomNumber(){
+    }
 
-    public RandomNumber(){
-        for (int i = 0; i < randomNumbers.length; i++){
-            randomNumbers[i] = rnd(1,4);
+    public static int getRandomNumbers() {
+        return (int)(Math.random() * 10);
+    }
+
+    public static void check(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = array.length - 1; j > i; j--) {
+                if (array[i] == array[j]){
+                    array[j] = (int) (Math.random() * 10);
+                    j = array.length - 1;
+                }
+            }
         }
     }
 
-    public static int rnd(int min, int max)
-    {
-        max -= min;
-        return (int) (Math.random() * ++max) + min;
-    }
-
-    public int[] getRandomNumbers() {
-        return randomNumbers;
-    }
 }

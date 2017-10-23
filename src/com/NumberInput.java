@@ -19,11 +19,11 @@ public class NumberInput {
         while (true) {
             if (scanner.hasNextInt()) {
                 numb = scanner.nextInt();
-                if (numb >= 1 & numb <= 4) {
+                if (numb >= 0 & numb < 10) {
                     break;
                 }
                 else {
-                    System.out.println("Введите число от 1 до 4.");
+                    System.out.println("Введите число от 0 до 9.");
                 }
             } else {
                 System.out.println("Вы ввели не целое число!");
@@ -33,17 +33,16 @@ public class NumberInput {
         return numb;
     }
 
-    public void equals(RandomNumber randomNumber){
-        for (int i = 0; i < randomNumber.getRandomNumbers().length; i++){
+    public void equals(int[] randomNumber){
+        for (int i = 0; i < randomNumber.length; i++){
             for (int q = 0; q < numbers.length; q++ ){
-                if (i == q & randomNumber.getRandomNumbers()[i] == numbers[q]){
+                if (i == q & randomNumber[i] == numbers[q]){
+                    b++;
                     a++;
-                    numbers[i] = 0;
                     break;
                 }
-                if (i != q & randomNumber.getRandomNumbers()[i] == numbers[q]){
-                    b++;
-                    numbers[i] = 0;
+                if (i != q & randomNumber[i] == numbers[q]){
+                    a++;
                     break;
                 }
             }
@@ -55,6 +54,18 @@ public class NumberInput {
     }
 
     public int getA() {
-        return a;
+        return b;
+    }
+
+    public boolean checkNumbers() {
+        for (int i = 0; i < numbers.length; i++) {
+            for (int j = numbers.length - 1; j > i; j--) {
+                if (numbers[i] == numbers[j]) {
+                    System.out.println("Вы ввели повторяющееся числа! \nПовторите ввод! ");
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
