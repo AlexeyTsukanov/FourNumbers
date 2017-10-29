@@ -7,15 +7,14 @@ public class Game {
             randomNumber[i] = RandomNumber.getRandomNumbers();
         }
         RandomNumber.check(randomNumber);
-        while (true){
+        while (true) {
             NumberInput numberInput = new NumberInput();
-            numberInput.equals(randomNumber);
-            if (numberInput.checkNumbers()){
-                numberInput.check();
-                if (numberInput.getA() == 4){
-                    break;
-                }
+            Score.scoreCheck(randomNumber, numberInput);
+            if (numberInput.checkNumbers() & Score.getB() == 4) {
+                break;
             }
+            Score.setA(0);
+            Score.setB(0);
         }
     }
 }

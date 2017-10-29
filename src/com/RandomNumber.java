@@ -1,8 +1,7 @@
 package com;
 
 public class RandomNumber {
-    private RandomNumber(){
-    }
+    private RandomNumber(){}
 
     public static int getRandomNumbers() {
         return (int)(Math.random() * 10);
