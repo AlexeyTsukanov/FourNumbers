@@ -14,6 +14,7 @@ public class RandomNumber {
                 if (array[i] == array[j]) {
                     array[j] = (int) (Math.random() * 10);
                     j = array.length - 1;
+                    i = 0;
                 }
             }
         }
