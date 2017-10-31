@@ -3,26 +3,23 @@ package com;
 public class Score {
     private static int a, b;
 
-    public static void scoreCheck(int[] randomNumber, NumberInput number) {
-        int[] numbers = number.getNumbers();
-        try {
-            for (int i = 0; i < randomNumber.length; i++) {
-                for (int q = 0; q < numbers.length; q++) {
-                    if (i == q & randomNumber[i] == numbers[q]) {
+    public static void scoreCheck(RandomNumber randomNumber, NumberInput number) {
+        int[] number1 = number.getNumbers();
+        int[] number2 = randomNumber.getRandomNumber();
+            for (int i = 0; i < randomNumber.getRandomNumber().length; i++) {
+                for (int q = 0; q < number1.length; q++) {
+                    if (i == q & number2[i] == number1[q]) {
                         b++;
                         a++;
                         break;
                     }
-                    if (i != q & randomNumber[i] == numbers[q]) {
+                    if (i != q & number2[i] == number1[q]) {
                         a++;
                         break;
                     }
                 }
             }
             System.out.println(a + " : " + b);
-        } catch (NullPointerException e) {
-            System.out.println("Вы ввели символ.");
-        }
     }
 
     public static int getB() {
