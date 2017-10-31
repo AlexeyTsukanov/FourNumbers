@@ -6,11 +6,9 @@ public class Game {
         while (true) {
             NumberInput numberInput = new NumberInput();
             Score.scoreCheck(randomNumber, numberInput);
-            if (Score.getB() == 4) {
+            if (Score.scoreCheck(randomNumber, numberInput) == 4) {
                 break;
             }
-            Score.setA(0);
-            Score.setB(0);
         }
     }
 }
